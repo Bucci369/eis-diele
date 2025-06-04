@@ -10,21 +10,7 @@ export default function MorphingBackground() {
     const container = containerRef.current
     if (!container) return
 
-    // Scroll-based parallax effect
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      const elements = container.querySelectorAll('.morph-element')
-      
-      elements.forEach((el, index) => {
-        const speed = (index + 1) * 0.1 + 0.2
-        const yPos = -(scrollY * speed)
-        const rotateSpeed = scrollY * 0.02
-        
-        if (el instanceof HTMLElement) {
-          el.style.transform = `translate3d(0, ${yPos}px, 0) rotate(${rotateSpeed}deg)`
-        }
-      })
-    }
+    // Scroll effect removed for better performance
 
     // Mouse movement effect
     const handleMouseMove = (e: MouseEvent) => {
@@ -32,24 +18,22 @@ export default function MorphingBackground() {
       const centerX = window.innerWidth / 2
       const centerY = window.innerHeight / 2
       
-      const moveX = (clientX - centerX) * 0.005
-      const moveY = (clientY - centerY) * 0.005
+      const moveX = (clientX - centerX) * 0.002
+      const moveY = (clientY - centerY) * 0.002
       
       const elements = container.querySelectorAll('.morph-element')
       elements.forEach((el, index) => {
         if (el instanceof HTMLElement) {
-          const multiplier = (index + 1) * 0.5
+          const multiplier = (index + 1) * 0.2
           el.style.setProperty('--mouse-x', `${moveX * multiplier}px`)
           el.style.setProperty('--mouse-y', `${moveY * multiplier}px`)
         }
       })
     }
 
-    window.addEventListener('scroll', handleScroll, { passive: true })
     window.addEventListener('mousemove', handleMouseMove, { passive: true })
 
     return () => {
-      window.removeEventListener('scroll', handleScroll)
       window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
@@ -65,8 +49,7 @@ export default function MorphingBackground() {
         style={{
           top: '10%',
           right: '15%',
-          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)',
-          transition: 'transform 0.1s ease-out'
+          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)'
         }}
       >
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-1">
@@ -85,17 +68,18 @@ export default function MorphingBackground() {
         style={{
           bottom: '10%',
           left: '15%',
-          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)',
-          transition: 'transform 0.1s ease-out'
+          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)'
         }}
       >
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-2">
-          <OptimizedImage
-            src="/images/image13.jpeg"
-            alt="Background Element"
-            className="w-full h-full object-cover"
-            placeholder="blur"
-          />
+          <div className="morph-rotate-1 w-full h-full">
+            <OptimizedImage
+              src="/images/image13.jpeg"
+              alt="Background Element"
+              className="w-full h-full object-cover"
+              placeholder="blur"
+            />
+          </div>
         </div>
       </div>
 
@@ -105,17 +89,18 @@ export default function MorphingBackground() {
         style={{
           bottom: '60%',
           left: '30%',
-          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)',
-          transition: 'transform 0.1s ease-out'
+          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)'
         }}
       >
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-2">
-          <OptimizedImage
-            src="/images/image11.jpeg"
-            alt="Background Element"
-            className="w-full h-full object-cover"
-            placeholder="blur"
-          />
+          <div className="morph-rotate-2 w-full h-full">
+            <OptimizedImage
+              src="/images/image11.jpeg"
+              alt="Background Element"
+              className="w-full h-full object-cover"
+              placeholder="blur"
+            />
+          </div>
         </div>
       </div>
 
@@ -125,8 +110,7 @@ export default function MorphingBackground() {
         style={{
           bottom: '5%',
           right:'30%',
-          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)',
-          transition: 'transform 0.1s ease-out'
+          transform: 'translate3d(var(--mouse-x, 0px), var(--mouse-y, 0px), 0)'
         }}
       >
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-2">

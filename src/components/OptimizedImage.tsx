@@ -68,16 +68,9 @@ export default function OptimizedImage({
           isLoaded ? 'opacity-0' : 'opacity-100'
         }`}
         style={{
-          background: getPlaceholder(),
-          backdropFilter: 'blur(20px)'
+          background: getPlaceholder()
         }}
-      >
-        <div className="w-full h-full flex items-center justify-center">
-          <div className="animate-pulse">
-            <div className="w-8 h-8 bg-white/30 rounded-full animate-bounce"></div>
-          </div>
-        </div>
-      </div>
+      />
 
       {/* Actual Image */}
       {isInView && (

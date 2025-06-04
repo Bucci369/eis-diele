@@ -22,13 +22,13 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center animate-on-load animate-fade-in-up animate-delay-800">
             <Link 
               href="#products" 
-              className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium rounded-full text-white bg-primary-500 hover:bg-primary-600 transition-all duration-300 shadow-lg hover-lift hover-glow liquid-button-enhanced confetti-button"
+              className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium rounded-full text-white bg-primary-500 hover:bg-primary-600 transition-colors duration-200 shadow-lg"
             >
               Eis entdecken
             </Link>
             <Link 
               href="#contact" 
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-primary-300 text-lg font-medium rounded-full text-primary-600 bg-white/80 hover:bg-primary-50 transition-all duration-300 shadow-lg hover-lift liquid-button-enhanced backdrop-blur-sm"
+              className="inline-flex items-center justify-center px-10 py-4 border-2 border-primary-300 text-lg font-medium rounded-full text-primary-600 bg-white/80 hover:bg-primary-50 transition-colors duration-200 shadow-lg"
             >
               Kontakt
             </Link>

@@ -175,6 +175,14 @@ h1, h2, h3, h4, h5, h6 {
   animation-delay: 0.8s;
 }
 
+.animate-delay-1200 {
+  animation-delay: 1.2s;
+}
+
+.animate-delay-1000 {
+  animation-delay: 1.0s;
+}
+
 /* Optimized Initial States */
 .animate-on-load {
   opacity: 0;
@@ -789,22 +797,53 @@ html {
   filter: blur(0.5px) saturate(0.9);
 }
 
-/* Parallax-inspired movement */
-@keyframes subtleParallax {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px) scale(1);
+/* Rotation animations for smaller elements */
+@keyframes slowRotate1 {
+  0% {
+    transform: rotate(0deg);
   }
-  50% {
-    transform: translateY(-20px) translateX(10px) scale(1.02);
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-.morph-element:nth-child(odd) {
-  animation-delay: 2s;
+@keyframes slowRotate2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
 }
 
-.morph-element:nth-child(even) {
-  animation-delay: 4s;
+@keyframes slowRotate3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply different rotations to smaller morphing elements */
+.morph-rotate-1 {
+  animation: slowRotate1 45s linear infinite;
+  transform-origin: center;
+}
+
+.morph-rotate-2 {
+  animation: slowRotate2 60s linear infinite;
+  transform-origin: center;
+}
+
+.morph-rotate-3 {
+  animation: slowRotate3 35s linear infinite;
+  transform-origin: center;
+}
+
+/* Fix for mouse movement with rotation */
+.morph-element {
+  transform-style: preserve-3d;
 }
 
 /* Performance optimizations for morphing */

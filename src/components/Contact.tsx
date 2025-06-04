@@ -24,7 +24,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-20 bg-white bubble-pattern section-animate animate-pop">
+    <section id="contact" className="py-20 bg-gradient-to-br from-rose-50 via-pink-25 to-rose-100 section-animate animate-pop">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
@@ -80,7 +80,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6 glass-effect p-8 rounded-2xl">
+          <form onSubmit={handleSubmit} className="space-y-6 bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-rose-200">
             <div>
               <input
                 type="text"
@@ -89,7 +89,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Ihr Name"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all duration-300 glass-effect hover-pop"
+                className="w-full px-4 py-3 bg-white/80 border border-rose-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-300 outline-none transition-all duration-300 shadow-sm backdrop-blur-sm"
               />
             </div>
             <div>
@@ -100,7 +100,7 @@ export default function Contact() {
                 onChange={handleChange}
                 placeholder="Ihre E-Mail"
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all duration-300 glass-effect hover-pop"
+                className="w-full px-4 py-3 bg-white/80 border border-rose-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-300 outline-none transition-all duration-300 shadow-sm backdrop-blur-sm"
               />
             </div>
             <div>
@@ -111,7 +111,7 @@ export default function Contact() {
                 placeholder="Ihre Nachricht"
                 rows={5}
                 required
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all duration-300 resize-none glass-effect hover-pop"
+                className="w-full px-4 py-3 bg-white/80 border border-rose-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-300 outline-none transition-all duration-300 resize-none shadow-sm backdrop-blur-sm"
               />
             </div>
             <button

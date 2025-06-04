@@ -11,7 +11,7 @@ export default function FloatingElements() {
 
     // Check device capabilities
     const isMobile = window.innerWidth <= 768
-    const isLowEnd = navigator.hardwareConcurrency <= 2 || navigator.deviceMemory <= 2
+    const isLowEnd = navigator.hardwareConcurrency <= 2 || (navigator as any).deviceMemory <= 2
     
     // Skip floating elements on low-end devices or if user prefers reduced motion
     if (isLowEnd || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
