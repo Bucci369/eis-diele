@@ -109,8 +109,8 @@ export default function About() {
         {/* Verwendet jetzt 'top' statt 'bottom' für präzisere Kontrolle */}
         
         {/* Bild 1 - Links oben */}
-<div className="absolute top-60 left-16 w-36 h-36 opacity-40 floating-3d animate-delay-400" style={{zIndex: 2}}>
-  <div className="morph-rotate-2 w-full h-full">  {/* 45s rechts */}
+<div className="absolute top-60 left-16 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-40 floating-3d animate-delay-400" style={{zIndex: 2}}>
+  <div className="morph-rotate-1 w-full h-full">
     <OptimizedImage
       src="/images/image14.png"
       alt="Floating Ice Cream"
@@ -121,8 +121,8 @@ export default function About() {
 </div>
 
 {/* Bild 2 - Rechts oben */}
-<div className="absolute top-32 right-16 w-32 h-32 opacity-30 floating-3d animate-delay-800" style={{zIndex: 2}}>
-  <div className="morph-rotate-1 w-full h-full">  {/* NEU: Wrapper mit Rotation */}
+<div className="absolute top-32 right-16 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 opacity-30 floating-3d animate-delay-800" style={{zIndex: 2}}>
+  <div className="morph-rotate-2 w-full h-full">
     <OptimizedImage
       src="/images/image15.png"
       alt="Floating Ice Cream"
@@ -132,8 +132,8 @@ export default function About() {
 </div>
 
 {/* Bild 3 - Rechts mitte */}
-<div className="absolute top-60 right-8 w-32 h-32 opacity-15 floating-3d animate-delay-800" style={{zIndex: 2}}>
-  <div className="morph-rotate-2 w-full h-full">  {/* NEU: Wrapper mit Rotation */}
+<div className="absolute top-60 right-8 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 opacity-15 floating-3d animate-delay-800" style={{zIndex: 2}}>
+  <div className="morph-rotate-3 w-full h-full">
     <OptimizedImage
       src="/images/image13.png"
       alt="Floating Ice Cream"
@@ -143,8 +143,8 @@ export default function About() {
 </div>
 
 {/* Bild 4 - Mitte */}
-<div className="absolute top-48 left-1/3 w-36 h-36 opacity-25 floating-3d animate-delay-1200" style={{zIndex: 2}}>
-  <div className="morph-rotate-3 w-full h-full">  {/* NEU: Wrapper mit Rotation */}
+<div className="absolute top-48 left-1/3 w-20 h-20 sm:w-28 sm:h-28 md:w-36 md:h-36 opacity-25 floating-3d animate-delay-1200" style={{zIndex: 2}}>
+  <div className="morph-rotate-2 w-full h-full">
     <OptimizedImage
       src="/images/image16.png"
       alt="Floating Ice Cream"
