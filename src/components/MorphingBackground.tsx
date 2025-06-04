@@ -74,7 +74,7 @@ export default function MorphingBackground() {
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-2">
           <div className="morph-rotate-1 w-full h-full">
             <OptimizedImage
-              src="/images/image13.jpeg"
+              src="/images/image13.png"
               alt="Background Element"
               className="w-full h-full object-cover"
               placeholder="blur"
@@ -95,7 +95,7 @@ export default function MorphingBackground() {
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-2">
           <div className="morph-rotate-2 w-full h-full">
             <OptimizedImage
-              src="/images/image11.jpeg"
+              src="/images/image11.png"
               alt="Background Element"
               className="w-full h-full object-cover"
               placeholder="blur"
@@ -115,7 +115,7 @@ export default function MorphingBackground() {
       >
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-2">
           <OptimizedImage
-            src="/images/image12.jpeg"
+            src="/images/image12.png"
             alt="Background Element"
             className="w-full h-full object-cover"
             placeholder="blur"
