@@ -33,18 +33,22 @@ export default function Hero() {
           }`}>
             Handgefertigtes Eis • Natürliche Zutaten • Täglich frisch
           </p>
-          <div className={`flex flex-col sm:flex-row gap-6 justify-center ${
-            isMounted ? 'animate-on-load animate-fade-in-up animate-delay-800' : 'opacity-0'
+          <div className={`flex flex-col sm:flex-row gap-6 justify-center transition-all duration-500 ${
+            isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             <Link 
               href="#products" 
-              className="inline-flex items-center justify-center px-10 py-4 text-lg font-medium rounded-full text-white bg-primary-500 hover:bg-primary-600 transition-colors duration-200 shadow-lg"
+              className={`inline-flex items-center justify-center px-10 py-4 text-lg font-medium rounded-full text-white bg-primary-500 shadow-lg transition-all duration-300 ${
+                isMounted ? 'hover:bg-primary-600' : ''
+              }`}
             >
               Eis entdecken
             </Link>
             <Link 
               href="#contact" 
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-primary-300 text-lg font-medium rounded-full text-primary-600 bg-white/80 hover:bg-primary-50 transition-colors duration-200 shadow-lg"
+              className={`inline-flex items-center justify-center px-10 py-4 border-2 border-primary-300 text-lg font-medium rounded-full text-primary-600 bg-white/80 shadow-lg transition-all duration-300 ${
+                isMounted ? 'hover:bg-primary-50' : ''
+              }`}
             >
               Kontakt
             </Link>

@@ -1009,4 +1009,18 @@ html {
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+/* Verhindere Layout-Shift bei Buttons */
+@media screen and (max-width: 640px) {
+  /* Fixe Mindesthöhe für Buttons auf Mobile */
+  .min-h-button {
+    min-height: 56px;
+  }
+}
+
+/* Deaktiviere Animationen während des initialen Ladens */
+html:not(.hydrated) * {
+  animation-duration: 0s !important;
+  transition-duration: 0s !important;
+}
+
 }
