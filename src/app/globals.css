@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+  --font-playfair: 'Playfair Display', serif;
+  
+  /* Gelato-inspired color variables */
+  --primary: 10 155 138; /* Teal */
+  --gelato-strawberry: 233 30 99; /* Pink */
+  --gelato-pistachio: 76 175 80; /* Green */
+  --gelato-chocolate: 93 64 55; /* Brown */
+  --gelato-vanilla: 255 248 220; /* Cream */
+  --gelato-mango: 255 152 0; /* Orange */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: var(--font-inter);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-inter);
+  background: linear-gradient(135deg, #E8F8F5 0%, #B3EDE5 25%, #7DDDD2 50%, #4DCDBE 75%, #0A9B8A 100%);
+  min-height: 100vh;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+/* Custom gelato-themed animations */
+@keyframes gelato-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-gelato-float {
+  animation: gelato-float 3s ease-in-out infinite;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-gelato-gradient {
+    background: linear-gradient(135deg, #E8F8F5 0%, #B3EDE5 25%, #7DDDD2 50%, #4DCDBE 75%, #0A9B8A 100%);
+  }
+}
