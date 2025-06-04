@@ -45,7 +45,7 @@ export default function MorphingBackground() {
     >
       {/* Floating Morphing Image 1 */}
       <div 
-        className="morph-element absolute w-96 h-96 opacity-15"
+        className="morph-element absolute w-96 h-96 opacity-40"
         style={{
           top: '10%',
           right: '15%',
@@ -54,7 +54,7 @@ export default function MorphingBackground() {
       >
         <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 morph-shape-1">
           <OptimizedImage
-            src="/images/image6.png"
+            src="/images/image15.png"
             alt="Background Element"
             className="w-full h-full object-cover"
             placeholder="blur"
@@ -64,7 +64,7 @@ export default function MorphingBackground() {
 
       {/* Image7 unten links - GENAU WIE OBEN */}
       <div 
-        className="morph-element absolute w-80 h-80 opacity-15"
+        className="morph-element absolute w-80 h-80 opacity-45"
         style={{
           bottom: '10%',
           left: '15%',
@@ -85,7 +85,7 @@ export default function MorphingBackground() {
 
 {/* Image11 oben links - GENAU WIE OBEN */}
       <div 
-        className="morph-element absolute w-32 h-32- opacity-15"
+        className="morph-element absolute w-32 h-32- opacity-70"
         style={{
           bottom: '60%',
           left: '30%',
@@ -106,7 +106,7 @@ export default function MorphingBackground() {
 
 {/* Image11 oben links - GENAU WIE OBEN */}
       <div 
-        className="morph-element absolute w-48 h-48- opacity-15"
+        className="morph-element absolute w-48 h-48- opacity-40"
         style={{
           bottom: '5%',
           right:'30%',
