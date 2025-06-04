@@ -18,16 +18,14 @@ export default function Products() {
     {
       id: 1,
       name: "Erdbeere Deluxe",
-      description: "Cremiges Gelato mit frischen Erdbeeren",
-      price: "€4.50",
+      description: "Cremiges Gelato mit frischen Erdbeeren aus der Region",
       category: "classic",
       image: "/images/image1.jpg"
     },
     {
       id: 2,
       name: "Pistazie Sizilien",
-      description: "Luxuriöses Gelato mit sizilianischen Pistazien",
-      price: "€6.50",
+      description: "Luxuriöses Gelato mit gerösteten sizilianischen Pistazien",
       category: "premium",
       image: "/images/image5.jpg"
     },
@@ -35,31 +33,27 @@ export default function Products() {
       id: 3,
       name: "Schokolade Noir",
       description: "Intensives Gelato mit 70% Valrhona Schokolade",
-      price: "€5.00",
       category: "classic",
       image: "/images/image3.jpg"
     },
     {
       id: 4,
       name: "Gelato Varietäten",
-      description: "Vielfältige Geschmackskombinationen in eleganten Gläsern",
-      price: "€5.50",
+      description: "Unsere beliebtesten Sorten kunstvoll kombiniert",
       category: "premium",
       image: "/images/image6.jpg"
     },
     {
       id: 5,
       name: "Bunte Eiskreation",
-      description: "Fröhliche Mischung mit bunten Streuseln",
-      price: "€4.80",
+      description: "Fröhliche vegane Kreation mit natürlichen Farben und Toppings",
       category: "vegan",
       image: "/images/image4.jpg"
     },
     {
       id: 6,
       name: "Premium Gelato Turm",
-      description: "Spektakulärer Turm aus verschiedenen Gelato-Sorten",
-      price: "€8.20",
+      description: "Spektakuläre Komposition aus unseren exklusivsten Sorten",
       category: "premium",
       image: "/images/image7.jpg"
     }
@@ -115,19 +109,17 @@ export default function Products() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
                     {product.name}
                   </h3>
-                  <p className="text-gray-600 mb-4 text-sm">
+                  <p className="text-gray-600 leading-relaxed">
                     {product.description}
                   </p>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xl font-bold text-primary-600">
-                      {product.price}
-                    </span>
-                    <button className="px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 text-sm font-medium hover-pop liquid-button-enhanced confetti-button click-burst">
-                      Bestellen
-                    </button>
+                  <div className="mt-4 flex items-center text-sm text-primary-600">
+                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Täglich frisch in unserer Manufaktur</span>
                   </div>
                 </div>
               </div>
