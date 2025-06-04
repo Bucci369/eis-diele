@@ -45,7 +45,7 @@ export default function MorphingBackground() {
     >
       {/* Floating Morphing Image 1 */}
       <div 
-        className="morph-element absolute w-96 h-96 opacity-40"
+        className="morph-element absolute w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 opacity-40"
         style={{
           top: '10%',
           right: '15%',
@@ -62,9 +62,9 @@ export default function MorphingBackground() {
         </div>
       </div>
 
-      {/* Image7 unten links - GENAU WIE OBEN */}
+      {/* Image7 unten links */}
       <div 
-        className="morph-element absolute w-80 h-80 opacity-45"
+        className="morph-element absolute w-40 sm:w-60 md:w-80 h-40 sm:h-60 md:h-80 opacity-45"
         style={{
           bottom: '10%',
           left: '15%',
@@ -83,9 +83,9 @@ export default function MorphingBackground() {
         </div>
       </div>
 
-{/* Image11 oben links - GENAU WIE OBEN */}
+      {/* Image11 oben links */}
       <div 
-        className="morph-element absolute w-32 h-32- opacity-70"
+        className="morph-element absolute w-20 sm:w-24 md:w-32 h-20 sm:h-24 md:h-32 opacity-70"
         style={{
           bottom: '60%',
           left: '30%',
@@ -104,9 +104,9 @@ export default function MorphingBackground() {
         </div>
       </div>
 
-{/* Image11 oben links - GENAU WIE OBEN */}
+      {/* Image12 unten rechts */}
       <div 
-        className="morph-element absolute w-48 h-48- opacity-40"
+        className="morph-element absolute w-32 sm:w-40 md:w-48 h-32 sm:h-40 md:h-48 opacity-40"
         style={{
           bottom: '5%',
           right:'30%',
