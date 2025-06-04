@@ -10,7 +10,7 @@ export default function Hero() {
       <MorphingBackground />
       <ParticleBackground />
       <FloatingElements />
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-playfair text-gray-900 leading-tight mb-8">
             <span className="block animate-melt-down animate-delay-200">Eis Diele</span>

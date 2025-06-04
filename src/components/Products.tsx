@@ -21,7 +21,7 @@ export default function Products() {
       description: "Cremiges Gelato mit frischen Erdbeeren",
       price: "€4.50",
       category: "classic",
-      image: "/images/image1.jpeg"
+      image: "/images/image1.jpg"
     },
     {
       id: 2,
@@ -29,7 +29,7 @@ export default function Products() {
       description: "Luxuriöses Gelato mit sizilianischen Pistazien",
       price: "€6.50",
       category: "premium",
-      image: "/images/image5.jpeg"
+      image: "/images/image5.jpg"
     },
     {
       id: 3,
@@ -37,7 +37,7 @@ export default function Products() {
       description: "Intensives Gelato mit 70% Valrhona Schokolade",
       price: "€5.00",
       category: "classic",
-      image: "/images/image3.jpeg"
+      image: "/images/image3.jpg"
     },
     {
       id: 4,
@@ -45,7 +45,7 @@ export default function Products() {
       description: "Vielfältige Geschmackskombinationen in eleganten Gläsern",
       price: "€5.50",
       category: "premium",
-      image: "/images/image2.jpeg"
+      image: "/images/image6.jpg"
     },
     {
       id: 5,
@@ -53,7 +53,7 @@ export default function Products() {
       description: "Fröhliche Mischung mit bunten Streuseln",
       price: "€4.80",
       category: "vegan",
-      image: "/images/image6.png"
+      image: "/images/image4.jpg"
     },
     {
       id: 6,
@@ -61,7 +61,7 @@ export default function Products() {
       description: "Spektakulärer Turm aus verschiedenen Gelato-Sorten",
       price: "€8.20",
       category: "premium",
-      image: "/images/image4.jpeg"
+      image: "/images/image7.jpg"
     }
   ]
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -77,8 +78,12 @@ export default function Contact() {
                   </svg>
                 </a>
               </div>
+              
+              
+              
             </div>
           </div>
+          
 
           <form onSubmit={handleSubmit} className="space-y-6 bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-rose-200">
             <div>
@@ -91,7 +96,7 @@ export default function Contact() {
                 required
                 className="w-full px-4 py-3 bg-white/80 border border-rose-200 rounded-xl focus:ring-2 focus:ring-primary-500 focus:border-primary-300 outline-none transition-all duration-300 shadow-sm backdrop-blur-sm"
               />
-            </div>
+            </div>            
             <div>
               <input
                 type="email"
