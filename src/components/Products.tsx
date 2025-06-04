@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import TiltCard from './TiltCard'
+import OptimizedImage from './OptimizedImage'
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -90,7 +91,7 @@ export default function Products() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover-pop click-burst ${
+              className={`px-6 py-2 rounded-full text-sm font-medium hover-pop click-burst ${
                 activeCategory === category.id
                   ? 'bg-primary-600 text-white shadow-lg sparkle-on-hover'
                   : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
@@ -106,10 +107,11 @@ export default function Products() {
             <TiltCard key={product.id} className="scroll-animate group">
               <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition-all duration-500 border border-primary-100 hover-lift h-full">
                 <div className="h-48 overflow-hidden">
-                  <img 
+                  <OptimizedImage 
                     src={product.image} 
                     alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full group-hover:scale-110 transition-transform duration-500"
+                    placeholder="gradient"
                   />
                 </div>
                 <div className="p-6">
@@ -123,7 +125,7 @@ export default function Products() {
                     <span className="text-xl font-bold text-primary-600">
                       {product.price}
                     </span>
-                    <button className="px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-all duration-300 text-sm font-medium hover-glow hover-pop liquid-button-enhanced confetti-button click-burst">
+                    <button className="px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 text-sm font-medium hover-pop liquid-button-enhanced confetti-button click-burst">
                       Bestellen
                     </button>
                   </div>

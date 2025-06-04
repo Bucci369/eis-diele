@@ -11,10 +11,14 @@ import Footer from '@/components/Footer'
 import CustomCursor from '@/components/CustomCursor'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { useAdvancedAnimations } from '@/hooks/useAdvancedAnimations'
+import { usePerformanceOptimization } from '@/hooks/usePerformanceOptimization'
+import { useImagePreloader } from '@/hooks/useImagePreloader'
 
 export default function Home() {
   useScrollAnimation()
   useAdvancedAnimations()
+  usePerformanceOptimization()
+  useImagePreloader()
 
   return (
     <main className="min-h-screen">

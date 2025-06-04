@@ -11,6 +11,8 @@ export default function About() {
         <div className="absolute top-20 left-10 w-32 h-32 bg-primary-100 rounded-full opacity-20 floating-3d"></div>
         <div className="absolute bottom-20 right-10 w-24 h-24 bg-primary-200 rounded-full opacity-30 floating-3d"></div>
         <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-primary-50 rounded-full opacity-15 floating-3d"></div>
+        {/* GROSSER BUBBLE VON HERO HIERHER ZURÜCKGEBRACHT */}
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-gradient-to-br from-primary-100/10 to-primary-200/15 rounded-full opacity-25 floating-3d backdrop-blur-sm"></div>
       </div>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
@@ -33,7 +35,7 @@ export default function About() {
             
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {values.map((value, index) => (
-            <div key={index} className="text-center p-6 glass-effect rounded-2xl hover-pop transition-all duration-500 border border-primary-200 sparkle-on-hover element-3d">
+            <div key={index} className="text-center p-6 glass-effect rounded-2xl hover-pop border border-primary-200 sparkle-on-hover">
               <div className="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full mx-auto mb-4 animate-pulse shadow-lg hover-pop"></div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">
                 {value.title}

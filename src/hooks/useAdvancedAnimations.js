@@ -4,85 +4,129 @@ import { useEffect } from 'react'
 
 export function useAdvancedAnimations() {
   useEffect(() => {
-    // Enhanced Intersection Observer for section animations
+    // Performance-optimized Intersection Observer
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: [0.1, 0.3],
+      rootMargin: '0px 0px -20px 0px'
     }
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
+    // Throttle function for better performance
+    const throttle = (func, delay) => {
+      let timeoutId;
+      let lastExecTime = 0;
+      return function (...args) {
+        const currentTime = Date.now();
+        if (currentTime - lastExecTime > delay) {
+          func.apply(this, args);
+          lastExecTime = currentTime;
+        } else {
+          clearTimeout(timeoutId);
+          timeoutId = setTimeout(() => {
+            func.apply(this, args);
+            lastExecTime = Date.now();
+          }, delay - (currentTime - lastExecTime));
+        }
+      };
+    };
+
+    const sectionObserver = new IntersectionObserver(throttle((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+          // Use requestAnimationFrame for smoother animations
+          requestAnimationFrame(() => {
             entry.target.classList.add('visible')
             
-            // Add different animation classes based on element
+            // Add optimized animation classes
             if (entry.target.classList.contains('animate-left')) {
               entry.target.classList.add('animate-slide-left')
             } else if (entry.target.classList.contains('animate-right')) {
               entry.target.classList.add('animate-slide-right')
             } else if (entry.target.classList.contains('animate-wipe')) {
-              entry.target.classList.add('animate-wipe-up')
+              entry.target.classList.add('animate-smooth-fade')
             } else if (entry.target.classList.contains('animate-pop')) {
-              entry.target.classList.add('animate-pop-out')
+              entry.target.classList.add('animate-gentle-pop')
             }
-          }, index * 100) // Stagger animations
+            
+            // Remove will-change after animation
+            setTimeout(() => {
+              entry.target.style.willChange = 'auto'
+            }, 1000)
+          })
+          
+          // Unobserve after animation to improve performance
+          sectionObserver.unobserve(entry.target)
         }
       })
-    }, observerOptions)
+    }, 100), observerOptions)
 
     // Observe all sections
     const sections = document.querySelectorAll('.section-animate')
     sections.forEach(section => sectionObserver.observe(section))
 
-    // Add sparkle effects to interactive elements
+    // Optimized sparkle effects with passive listeners
     const addSparkles = () => {
       const interactiveElements = document.querySelectorAll('.sparkle-on-hover')
       interactiveElements.forEach(el => {
         el.addEventListener('mouseenter', () => {
-          el.classList.add('sparkle-container')
-        })
+          if (window.innerWidth > 768) { // Only on desktop
+            el.classList.add('sparkle-container')
+          }
+        }, { passive: true })
+        
         el.addEventListener('mouseleave', () => {
-          setTimeout(() => {
-            el.classList.remove('sparkle-container')
-          }, 2000)
-        })
+          if (window.innerWidth > 768) {
+            setTimeout(() => {
+              el.classList.remove('sparkle-container')
+            }, 1500) // Reduced time
+          }
+        }, { passive: true })
       })
     }
 
-    // Create floating confetti on special interactions
+    // Optimized confetti with reduced particles for mobile
     const createConfetti = (x, y) => {
-      const colors = ['#F472B6', '#FBCFE8', '#F9A8D4', '#FCE7F3']
-      for (let i = 0; i < 6; i++) {
+      const isMobile = window.innerWidth <= 768
+      const particleCount = isMobile ? 3 : 5 // Fewer particles on mobile
+      const colors = ['#F472B6', '#FBCFE8', '#F9A8D4']
+      
+      for (let i = 0; i < particleCount; i++) {
         const confetti = document.createElement('div')
         confetti.style.cssText = `
           position: fixed;
           left: ${x}px;
           top: ${y}px;
-          width: 8px;
-          height: 8px;
+          width: ${isMobile ? '6px' : '8px'};
+          height: ${isMobile ? '6px' : '8px'};
           background: ${colors[Math.floor(Math.random() * colors.length)]};
           border-radius: 50%;
           pointer-events: none;
           z-index: 1000;
-          animation: confettiDrop 2s linear forwards;
-          transform: translateX(${(Math.random() - 0.5) * 100}px);
+          animation: confettiDrop ${isMobile ? '1.5s' : '2s'} linear forwards;
+          transform: translateX(${(Math.random() - 0.5) * (isMobile ? 60 : 100)}px);
         `
         document.body.appendChild(confetti)
         
         setTimeout(() => {
-          confetti.remove()
-        }, 2000)
+          if (confetti.parentNode) {
+            confetti.remove()
+          }
+        }, isMobile ? 1500 : 2000)
       }
     }
 
-    // Add confetti to special buttons
+    // Throttled confetti effect
     const addConfettiEffect = () => {
       const specialButtons = document.querySelectorAll('.confetti-button')
+      let lastConfettiTime = 0
+      
       specialButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          createConfetti(e.clientX, e.clientY)
-        })
+        button.addEventListener('click', throttle((e) => {
+          const now = Date.now()
+          if (now - lastConfettiTime > 500) { // Throttle confetti
+            createConfetti(e.clientX, e.clientY)
+            lastConfettiTime = now
+          }
+        }, 500), { passive: true })
       })
     }
 

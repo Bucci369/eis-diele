@@ -31,23 +31,23 @@ export default function Location() {
   ]
 
   return (
-    <section id="location" className="py-20 bg-gray-50">
+    <section id="location" className="py-20 bg-gray-50 ice-crystal-pattern section-animate animate-right">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-4 element-3d sparkle-on-hover">
             Besuchen Sie uns
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Erleben Sie unsere Gelato-Kunst in unserem modernen Flagship Store
+            Erleben Sie unsere Eis-Kunst in unserer modernen Manufaktur
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             {locationInfo.map((info, index) => (
-              <div key={index} className="flex items-start space-x-4">
+              <div key={index} className="flex items-start space-x-4 hover-pop">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center text-primary-600">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-100 to-primary-200 rounded-full flex items-center justify-center text-primary-600 glass-effect hover-pop sparkle-on-hover">
                     {info.icon}
                   </div>
                 </div>
@@ -63,13 +63,14 @@ export default function Location() {
             ))}
           </div>
 
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <div className="h-80 bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center rounded-lg">
-              <div className="text-center text-white">
-                <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="bg-white rounded-lg shadow-md overflow-hidden hover-lift element-3d">
+            <div className="h-80 bg-gradient-to-br from-primary-200 to-primary-400 flex items-center justify-center rounded-lg relative overflow-hidden confetti-button">
+              <div className="absolute inset-0 frost-pattern opacity-30"></div>
+              <div className="text-center text-white relative z-10">
+                <svg className="w-16 h-16 mx-auto mb-4 floating-3d" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
                 </svg>
-                <span className="text-lg font-medium">Interactive Map</span>
+                <span className="text-lg font-medium">Interaktive Karte</span>
                 <p className="text-sm text-primary-100 mt-2">
                   Klicken Sie hier für die Navigation
                 </p>

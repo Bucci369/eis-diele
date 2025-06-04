@@ -32,14 +32,16 @@ export default function ParticleBackground() {
     const createParticles = () => {
       const particles: Particle[] = []
       const colors = ['#F472B6', '#FBCFE8', '#FCE7F3', '#F9A8D4', '#ffffff']
+      const isMobile = window.innerWidth <= 768
+      const particleCount = isMobile ? 15 : 25 // Even fewer particles to let morphing background shine
       
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < particleCount; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           radius: Math.random() * 8 + 2,
-          dx: (Math.random() - 0.5) * 0.5,
-          dy: (Math.random() - 0.5) * 0.5,
+          dx: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5),
+          dy: (Math.random() - 0.5) * (isMobile ? 0.3 : 0.5),
           color: colors[Math.floor(Math.random() * colors.length)],
           opacity: Math.random() * 0.3 + 0.1
         })
@@ -48,7 +50,18 @@ export default function ParticleBackground() {
       particlesRef.current = particles
     }
 
-    const animate = () => {
+    let animationId: number
+    let lastTime = 0
+    const targetFPS = window.innerWidth <= 768 ? 30 : 60 // Lower FPS on mobile
+    const interval = 1000 / targetFPS
+    
+    const animate = (currentTime: number) => {
+      if (currentTime - lastTime < interval) {
+        animationId = requestAnimationFrame(animate)
+        return
+      }
+      lastTime = currentTime
+      
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       
       particlesRef.current.forEach((particle) => {
@@ -82,19 +95,19 @@ export default function ParticleBackground() {
         particle.opacity = Math.sin(Date.now() * 0.001 + particle.x * 0.01) * 0.1 + 0.2
       })
       
-      animationRef.current = requestAnimationFrame(animate)
+      animationId = requestAnimationFrame(animate)
     }
 
     resizeCanvas()
     createParticles()
-    animate()
+    animationId = requestAnimationFrame(animate)
 
     window.addEventListener('resize', resizeCanvas)
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current)
+      if (animationId) {
+        cancelAnimationFrame(animationId)
       }
     }
   }, [])
