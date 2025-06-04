@@ -408,21 +408,21 @@ html {
   }
 }
 
-@keyframes meltDown {
+@keyframes meltDownSmooth {
   0% {
-    transform: translateY(-50px) scale(1.1);
+    transform: translateY(-40px) scale(1.08);
     opacity: 0;
-    filter: blur(5px) drop-shadow(0 -10px 20px rgba(244, 114, 182, 0.8));
+    filter: blur(8px);
   }
-  30% {
-    transform: translateY(-20px) scale(1.05);
+  50% {
+    transform: translateY(-15px) scale(1.03);
     opacity: 0.7;
-    filter: blur(2px) drop-shadow(0 -5px 15px rgba(244, 114, 182, 0.6));
+    filter: blur(3px);
   }
   100% {
     transform: translateY(0) scale(1);
     opacity: 1;
-    filter: blur(0) drop-shadow(0 0 10px rgba(244, 114, 182, 0.4));
+    filter: blur(0px);
   }
 }
 
@@ -451,8 +451,16 @@ html {
   animation: glow 2s ease-in-out infinite;
 }
 
-.animate-melt-down {
-  animation: meltDown 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+.animate-melt-smooth {
+  animation: meltDownSmooth 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.animate-melt-smooth-delay {
+  animation: meltDownSmooth 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+  opacity: 0; /* Wichtig für den Start */
 }
 
 .animate-tilt-shake {
