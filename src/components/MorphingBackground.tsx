@@ -18,8 +18,8 @@ export default function MorphingBackground() {
       const centerX = window.innerWidth / 2
       const centerY = window.innerHeight / 2
       
-      const moveX = (clientX - centerX) * 0.002
-      const moveY = (clientY - centerY) * 0.002
+      const moveX = (clientX - centerX) * 0.005
+      const moveY = (clientY - centerY) * 0.005
       
       const elements = container.querySelectorAll('.morph-element')
       elements.forEach((el, index) => {

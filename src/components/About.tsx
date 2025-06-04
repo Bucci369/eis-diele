@@ -1,3 +1,105 @@
+'use client' // Wichtig, da dies eine Client-Komponente ist
+
+import { useEffect, useRef, useState } from 'react' // useState hinzugefügt, falls du es für andere Zwecke brauchst
+
+// Die OptimizedImage Komponente, wie du sie mir gegeben hast, aber hier direkt eingebettet
+// In einer echten Anwendung würdest du sie weiterhin aus './OptimizedImage' importieren
+interface OptimizedImageProps {
+  src: string
+  alt: string
+  className?: string
+  placeholder?: string
+  priority?: boolean
+}
+
+function OptimizedImage({
+  src,
+  alt,
+  className = '',
+  placeholder = 'gradient',
+  priority = false
+}: OptimizedImageProps) {
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [isInView, setIsInView] = useState(priority)
+  const imgRef = useRef<HTMLImageElement>(null)
+  const placeholderRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (priority) {
+      setIsInView(true)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: '50px' }
+    )
+
+    if (placeholderRef.current) {
+      observer.observe(placeholderRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [priority])
+
+  const handleLoad = () => {
+    setIsLoaded(true)
+  }
+
+  const getPlaceholder = () => {
+    switch (placeholder) {
+      case 'gradient':
+        return 'linear-gradient(135deg, #F472B6 0%, #FBCFE8 50%, #FCE7F3 100%)'
+      case 'blur':
+        return 'linear-gradient(135deg, rgba(244, 114, 182, 0.1) 0%, rgba(251, 207, 232, 0.1) 100%)'
+      default:
+        return '#F3F4F6'
+    }
+  }
+
+  // WICHTIG: Wenn du die Next.js Image Komponente verwendest,
+  // musst du stattdessen `import Image from 'next/image'` nutzen und
+  // `OptimizedImage` durch `Image` ersetzen und die props anpassen.
+  // Die aktuelle `OptimizedImage` führt keine Next.js-spezifische Bildoptimierung durch.
+  // Sie ist nur für Lazy Loading und Platzhalter zuständig.
+  // Für WebP und Auto-Optimierung musst du 'next/image' nutzen oder selbst das <picture> Tag einbauen.
+
+  return (
+    <div className={`relative overflow-hidden ${className}`} ref={placeholderRef}>
+      {/* Placeholder */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-500 ${
+          isLoaded ? 'opacity-0' : 'opacity-100'
+        }`}
+        style={{
+          background: getPlaceholder()
+        }}
+      />
+
+      {/* Actual Image */}
+      {isInView && (
+        <img
+          ref={imgRef}
+          src={src}
+          alt={alt}
+          onLoad={handleLoad}
+          className={`w-full h-full object-cover transition-opacity duration-500 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+        />
+      )}
+    </div>
+  )
+}
+
+
 export default function About() {
   const values = [
     { title: "Nachhaltigkeit", desc: "Regionale Bio-Zutaten" },
@@ -7,31 +109,53 @@ export default function About() {
 
   return (
     <section id="about" className="py-20 bg-gradient-to-br from-pink-50 via-rose-25 to-pink-100 relative overflow-hidden section-animate animate-wipe">
-      <div className="absolute inset-0 parallax-element overflow-visible" data-speed="0.3" style={{zIndex: 1}}>
+      {/* Dieses div enthielt die 'parallax-element' Klasse und 'data-speed'.
+        Beides wurde entfernt, um den Scroll-Effekt zu deaktivieren.
+      */}
+      <div className="absolute inset-0 overflow-visible" style={{zIndex: 1}}>
+        {/* Die runden Farb-Elemente - ihre Animationen bleiben (gentle-float, pulse) */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-rose-300/40 to-pink-400/30 rounded-full opacity-60 floating-3d animate-gentle-float animate-pulse shadow-lg"></div>
         <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-gradient-to-br from-rose-200/60 to-pink-300/50 rounded-full opacity-50 floating-3d animate-gentle-float animate-delay-800 shadow-sm"></div>
         <div className="absolute top-1/4 right-1/3 w-20 h-20 bg-gradient-to-br from-pink-200/40 to-rose-300/30 rounded-full opacity-40 floating-3d animate-gentle-float animate-delay-600 shadow-md"></div>
         <div className="absolute bottom-1/3 left-1/4 w-28 h-28 bg-gradient-to-br from-rose-300/30 to-pink-400/20 rounded-full opacity-30 floating-3d animate-gentle-float animate-delay-1000 shadow-lg"></div>
         
-        {/* New floating images extending to Products section - better distributed */}
-        <div className="absolute -bottom-24 left-16 w-36 h-36 opacity-20 floating-3d animate-gentle-float animate-delay-400 morph-rotate-1 overflow-visible" style={{zIndex: 1}}>
+        {/* Deine schwebenden Bilder (image14, image15, image16) 
+          Die Klassen 'animate-gentle-float' und 'morph-rotate-X' wurden entfernt, 
+          um auch deren unabhängige Bewegungen zu stoppen.
+          Die OptimizedImage Komponente wird nun verwendet.
+        */}
+        <div className="absolute -bottom-24 left-16 w-36 h-36 opacity-20 floating-3d animate-delay-400 overflow-visible" style={{zIndex: 1}}>
           <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 shadow-lg">
-            <img src="/images/image14.jpeg" alt="Floating Element" className="w-full h-full object-cover" loading="lazy" />
+            <OptimizedImage
+              src="/images/image14.png" // Nutze hier den Pfad zur Original-Datei
+              alt="Floating Element"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         
-        <div className="absolute -bottom-36 right-32 w-32 h-32 opacity-15 floating-3d animate-gentle-float animate-delay-800 morph-rotate-2 overflow-visible" style={{zIndex: 1}}>
+        <div className="absolute -bottom-36 right-32 w-32 h-32 opacity-15 floating-3d animate-delay-800 overflow-visible" style={{zIndex: 1}}>
           <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 shadow-lg">
-            <img src="/images/image15.jpeg" alt="Floating Element" className="w-full h-full object-cover" loading="lazy" />
+            <OptimizedImage
+              src="/images/image15.png" // Nutze hier den Pfad zur Original-Datei
+              alt="Floating Element"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
         
-        <div className="absolute -bottom-20 left-2/3 w-28 h-28 opacity-25 floating-3d animate-gentle-float animate-delay-1200 morph-rotate-3 overflow-visible" style={{zIndex: 1}}>
+        <div className="absolute -bottom-20 left-2/3 w-28 h-28 opacity-25 floating-3d animate-delay-1200 overflow-visible" style={{zIndex: 1}}>
           <div className="w-full h-full rounded-full overflow-hidden backdrop-blur-sm border border-white/20 shadow-lg">
-            <img src="/images/image16.jpeg" alt="Floating Element" className="w-full h-full object-cover" loading="lazy" />
+            <OptimizedImage
+              src="/images/image16.png" // Nutze hier den Pfad zur Original-Datei
+              alt="Floating Element"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
+
+      {/* Rest deiner Sektion bleibt gleich */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-6 element-3d">
@@ -64,7 +188,6 @@ export default function About() {
             </div>
           ))}
         </div>
-        
       </div>
     </section>
   )
