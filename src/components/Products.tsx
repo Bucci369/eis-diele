@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import TiltCard from './TiltCard'
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('all')
@@ -68,14 +69,19 @@ export default function Products() {
     : products.filter(product => product.category === activeCategory)
 
   return (
-    <section id="products" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="products" className="section-padding bg-primary-50 frost-pattern relative overflow-hidden section-animate animate-left">
+      <div className="absolute inset-0 parallax-element" data-speed="0.2">
+        <div className="absolute top-40 right-20 w-40 h-40 bg-white rounded-full opacity-30 floating-3d"></div>
+        <div className="absolute bottom-40 left-20 w-28 h-28 bg-primary-200 rounded-full opacity-40 floating-3d"></div>
+        <div className="absolute top-20 left-1/3 w-20 h-20 bg-primary-100 rounded-full opacity-25 floating-3d"></div>
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-4">
-            Unsere Signature Kollektion
+          <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-4 element-3d sparkle-on-hover">
+            Unsere Eis Sorten
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Entdecken Sie unsere handgefertigten Gelato-Kreationen
+            Handgefertigt aus den besten natürlichen Zutaten
           </p>
         </div>
 
@@ -84,10 +90,10 @@ export default function Products() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-6 py-2 rounded-full text-sm font-medium transition-colors ${
+              className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 hover-pop click-burst ${
                 activeCategory === category.id
-                  ? 'bg-primary-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-100'
+                  ? 'bg-primary-600 text-white shadow-lg sparkle-on-hover'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
               }`}
             >
               {category.name}
@@ -96,32 +102,34 @@ export default function Products() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
-            <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={product.image} 
-                  alt={product.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  {product.description}
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-2xl font-bold text-primary-600">
-                    {product.price}
-                  </span>
-                  <button className="px-4 py-2 bg-primary-600 text-white rounded-md hover:bg-primary-700 transition-colors">
-                    Bestellen
-                  </button>
+          {filteredProducts.map((product, index) => (
+            <TiltCard key={product.id} className="scroll-animate group">
+              <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition-all duration-500 border border-primary-100 hover-lift h-full">
+                <div className="h-48 overflow-hidden">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600 mb-4 text-sm">
+                    {product.description}
+                  </p>
+                  <div className="flex justify-between items-center">
+                    <span className="text-xl font-bold text-primary-600">
+                      {product.price}
+                    </span>
+                    <button className="px-4 py-2 bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-all duration-300 text-sm font-medium hover-glow hover-pop liquid-button-enhanced confetti-button click-burst">
+                      Bestellen
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>

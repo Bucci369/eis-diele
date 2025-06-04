@@ -1,53 +1,50 @@
 export default function About() {
-  const stats = [
-    { number: "20+", label: "Jahre Erfahrung" },
-    { number: "50+", label: "Unique Sorten" },
-    { number: "100%", label: "Handgemacht" }
+  const values = [
+    { title: "Nachhaltigkeit", desc: "Regionale Bio-Zutaten" },
+    { title: "Handwerk", desc: "Traditionelle Rezepte" },
+    { title: "Leidenschaft", desc: "Für perfekten Geschmack" }
   ]
 
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-6">
-              Unsere Geschichte
-            </h2>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Seit über 20 Jahren kreieren wir authentisches italienisches Gelato nach traditionellen Rezepten unserer Familie.
+    <section id="about" className="py-20 bg-white bubble-pattern relative overflow-hidden section-animate animate-wipe">
+      <div className="absolute inset-0 parallax-element" data-speed="0.3">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-primary-100 rounded-full opacity-20 floating-3d"></div>
+        <div className="absolute bottom-20 right-10 w-24 h-24 bg-primary-200 rounded-full opacity-30 floating-3d"></div>
+        <div className="absolute top-1/2 left-1/2 w-16 h-16 bg-primary-50 rounded-full opacity-15 floating-3d"></div>
+      </div>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-6 element-3d">
+            Über Uns
+          </h2>
+          <div className="max-w-3xl mx-auto">
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed scroll-animate">
+              Mein Name ist Maria, und ich lebe meinen Traum: Die Herstellung von authentischem, handgemachtem Eis. 
+              Was als kleine Leidenschaft in meiner Küche begann, ist heute eine Manufaktur geworden, 
+              die für Qualität und Geschmack steht.
             </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-              Unsere Leidenschaft für Qualität und Geschmack spiegelt sich in jeder Kugel wider. Wir verwenden nur die besten Zutaten aus nachhaltiger Produktion und stellen täglich frisch her.
+            <p className="text-gray-600 mb-8 leading-relaxed scroll-animate">
+              Jede Sorte wird mit größter Sorgfalt und nur aus den besten, natürlichen Zutaten hergestellt. 
+              Ich arbeite eng mit lokalen Bauern zusammen und verwende bevorzugt Bio-Produkte aus der Region. 
+              So entstehen täglich frische, kleine Chargen – für den perfekten Geschmack in jeder Kugel.
             </p>
-            
-            <div className="grid grid-cols-3 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl font-bold text-primary-600 mb-2">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-gray-600 font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          
-          <div className="flex justify-center">
-            <div className="relative">
-              <div className="w-80 h-80 rounded-lg overflow-hidden shadow-xl">
-                <img 
-                  src="/images/image2.jpeg" 
-                  alt="Gelato Varieties" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-3 -right-3 w-24 h-24 bg-primary-400 rounded-full opacity-20"></div>
-              <div className="absolute -top-3 -left-3 w-16 h-16 bg-gelato-strawberry rounded-full opacity-20"></div>
-            </div>
           </div>
         </div>
+            
+        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {values.map((value, index) => (
+            <div key={index} className="text-center p-6 glass-effect rounded-2xl hover-pop transition-all duration-500 border border-primary-200 sparkle-on-hover element-3d">
+              <div className="w-12 h-12 bg-gradient-to-br from-primary-400 to-primary-600 rounded-full mx-auto mb-4 animate-pulse shadow-lg hover-pop"></div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                {value.title}
+              </h3>
+              <p className="text-gray-600">
+                {value.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+        
       </div>
     </section>
   )
