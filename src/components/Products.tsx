@@ -98,7 +98,7 @@ export default function Products() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProducts.map((product, index) => (
-            <TiltCard key={product.id} className="scroll-animate group">
+            <TiltCard key={product.id}>
               <div className="bg-white rounded-2xl shadow-sm overflow-hidden hover:shadow-xl transition-all duration-500 border border-primary-100 hover-lift h-full">
                 <div className="h-48 overflow-hidden">
                   <OptimizedImage 

@@ -20,8 +20,8 @@ export default function TiltCard({ children, className = '' }: TiltCardProps) {
     const y = e.clientY - rect.top
     const centerX = rect.width / 2
     const centerY = rect.height / 2
-    const rotateX = (y - centerY) / 10
-    const rotateY = (centerX - x) / 10
+    const rotateX = (y - centerY) / 100
+    const rotateY = (centerX - x) / 100
 
     setStyle({
       transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(20px)`,
