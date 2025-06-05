@@ -71,8 +71,8 @@ export default function KugelKontoCard() {
         
         {/* Inhalt der Bonuskarte */}
         <div className="relative z-10 flex flex-col justify-between h-full"> {/* Flexbox für bessere Textverteilung */}
-          <div className="mb-4"> {/* Erhöhter Abstand für den Titel */}
-            <h3 className="text-2xl font-extrabold text-white mb-2">🍦 Dein Kugel Konto</h3> {/* Größer und kräftiger */}
+          <div className="mb-4 text-center"> {/* Erhöhter Abstand für den Titel */}
+            <h3 className="text-2xl font-extrabold text-white mb-2"> Dein Kugel Konto</h3> {/* Größer und kräftiger */}
             <h4 className="text-xl font-playfair text-white mb-2 leading-tight">Sammle Kugeln, erhalte gratis Eis!</h4> {/* Weißer Text */}
             <p className="text-white text-sm opacity-90">Deine Treue wird belohnt – einfach bei jedem Besuch stempeln lassen.</p> {/* Weißer Text, leicht transparent */}
           </div>
