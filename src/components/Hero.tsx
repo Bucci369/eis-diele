@@ -45,15 +45,7 @@ export default function Hero() {
             >
               Eis entdecken
             </Link>
-            <Link 
-              href="#contact" 
-              className={`inline-flex items-center justify-center px-10 py-4 border-2 border-primary-300 text-lg font-medium rounded-full text-primary-600 bg-white/80 shadow-lg transition-all duration-300 ${
-                isMounted ? 'hover:bg-primary-50' : ''
-              }`}
-            >
-              Kontakt
-            </Link>
-          </div>
+            </div>
         </div>
         
         <div className="mt-12 flex justify-center">
