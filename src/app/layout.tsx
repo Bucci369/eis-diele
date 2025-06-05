@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
-import IceCreamOfTheDay from '../components/IceCreamOfTheDay'
-import HydrationFix from '../components/HydrationFix'  // NEU
+// **WICHTIG:** Sicherstellen, dass der Import-Pfad und der Name korrekt sind
+import KugelKontoCard from '../components/IceCreamOfTheDay' 
+import HydrationFix from '../components/HydrationFix' // NEU
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -27,9 +28,10 @@ export default function RootLayout({
   return (
     <html lang="de" className="scroll-smooth">
       <body className={`${inter.variable} ${playfair.variable} font-sans`}>
-        <HydrationFix />  {/* NEU - vor {children} */}
+        <HydrationFix />  {/* Hilft bei Client-Side Rendering Problemen */}
         {children}
-        <IceCreamOfTheDay />
+        {/* **WICHTIG:** Die KugelKontoCard wird hier global gerendert */}
+        <KugelKontoCard /> 
       </body>
     </html>
   )

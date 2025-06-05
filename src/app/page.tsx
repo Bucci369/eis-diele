@@ -5,7 +5,6 @@ import Navigation from '@/components/Navigation'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import Products from '@/components/Products'
-import Location from '@/components/Location'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import CustomCursor from '@/components/CustomCursor'
@@ -27,7 +26,6 @@ export default function Home() {
       <Hero />
       <About />
       <Products />
-      <Location />
       <Contact />
       <Footer />
     </main>
