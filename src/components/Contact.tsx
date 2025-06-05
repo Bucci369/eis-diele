@@ -1,12 +1,10 @@
 'use client'
 
-import MorphingBackground from './MorphingBackground' // Stelle sicher, dass der Pfad korrekt ist
 
 export default function Contact() {
   return (
     <section id="contact" className="py-20 bg-gradient-to-br from-rose-50 via-pink-50 to-rose-100 relative overflow-hidden">
-      <MorphingBackground />
-      
+            
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold font-playfair text-gray-900 mb-4">
@@ -21,15 +19,16 @@ export default function Contact() {
           
           {/* Spalte 1: Interaktive Karte */}
           <div className="rounded-2xl shadow-xl overflow-hidden aspect-w-16 aspect-h-9 md:aspect-h-full md:h-full min-h-[300px] md:min-h-[500px]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.632950924064!2d13.410725712647526!3d52.52198137194502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e1edb11286f%3A0x30fc01c366e4166e!2sAlexanderplatz!5e0!3m2!1sde!2sde!4v1749117441322!5m2!1sde!2sde" // Dein eingefügter Link
-              width="100%"    // Angepasst für Responsivität
-              height="100%"   // Angepasst für Responsivität
-              style={{ border:0 }} 
-              allowFullScreen={true} // Angepasst für JSX
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade">
-            </iframe>
+    <iframe
+      // Annahme: '.../6' ist die korrekte "eingebettete" URL von Google Maps "Teilen" -> "Karte einbetten"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.632950917617!2d13.410731077079818!3d52.52198137206168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47a84e1edb11286f%3A0x30fc01c366e4166e!2sAlexanderplatz!5e0!3m2!1sde!2sde!4v1749121069942!5m2!1sde!2sde"
+      width="100%"    // Angepasst für Responsivität
+      height="100%"   // Angepasst für Responsivität
+      style={{ border:0 }}
+      allowFullScreen={true} // Angepasst für JSX
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade">
+    </iframe>
           </div>
 
           {/* Spalte 2: Kombinierte Kontaktinformationen & Öffnungszeiten */}

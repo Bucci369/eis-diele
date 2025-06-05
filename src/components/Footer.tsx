@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <h3 className="text-2xl font-bold font-playfair mb-4 text-gray-800">
-              Eis Diele
+              Schleckerwerk
             </h3>
             <p className="text-gray-600 text-base">
               Handgemachtes Eis mit Leidenschaft seit 2020

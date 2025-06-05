@@ -6,10 +6,17 @@ export function useImagePreloader(images = []) {
   useEffect(() => {
     // Preload critical images
     const criticalImages = [
-      '/images/image1.jpeg',
-      '/images/image2.jpeg',
-      '/images/image3.jpeg',
-      '/images/image4.jpeg',
+      '/images/image1.jpg',
+      '/images/image5.jpg',
+      '/images/image3.jpg',
+      '/images/image4.jpg',
+      '/images/image6.jpg',
+      '/images/image11.png',
+      '/images/image12.png',
+      '/images/image13.png',
+      '/images/image14.png',
+      '/images/image15.png',
+      '/images/image16.png',
       ...images
     ]
 
@@ -72,11 +79,25 @@ export function useImagePreloader(images = []) {
         // Low priority - preload when idle
         if ('requestIdleCallback' in window) {
           requestIdleCallback(() => {
-            const lowPriorityImages = criticalImages.slice(4)
-            Promise.all(
-              lowPriorityImages.map(src => preloadImage(src))
-            ).catch(console.warn)
-          })
+            const lowPriorityImages = criticalImages.slice(4);
+            // Nur ausführen, wenn tatsächlich Bilder in dieser Kategorie vorhanden sind
+            if (lowPriorityImages.length > 0) {
+              Promise.all(
+                lowPriorityImages.map(src => preloadImage(src))
+              ).catch(console.warn);
+            }
+          });
+        } else {
+          // Fallback für Browser ohne requestIdleCallback
+          setTimeout(() => {
+            const lowPriorityImages = criticalImages.slice(4);
+            // Nur ausführen, wenn tatsächlich Bilder in dieser Kategorie vorhanden sind
+            if (lowPriorityImages.length > 0) {
+              Promise.all(
+                lowPriorityImages.map(src => preloadImage(src))
+              ).catch(console.warn);
+            }
+          }, 2000); // Ein angemessener Delay für den Fallback
         }
         
       } catch (error) {
