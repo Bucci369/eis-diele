@@ -21,12 +21,13 @@ export default function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-playfair text-gray-900 leading-tight mb-8">
-            <span className={`block ${isMounted ? 'animate-melt-smooth' : 'opacity-0'}`}>
-              Schleckwerk
-            </span>
-            <span className={`block gradient-text ${isMounted ? 'animate-melt-smooth-delay' : 'opacity-0'}`}>
-              Manufaktur
-            </span>
+        <span className={`block ${isMounted ? 'animate-melt-smooth' : 'opacity-0'}`}>
+          Schleckwerk
+          </span>
+          {/* Füge die größeren Schriftklassen zu diesem span hinzu: */}
+          <span className={`block gradient-text ${isMounted ? 'animate-melt-smooth-delay' : 'opacity-0'} text-5xl sm:text-6xl lg:text-8xl`}>
+            Manufaktur
+          </span>
           </h1>
           <p className={`text-xl sm:text-2xl text-gray-600 mb-12 leading-relaxed font-light transition-all duration-700 ${
             isMounted ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-2'
