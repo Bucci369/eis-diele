@@ -767,13 +767,13 @@ html {
 
 .morph-shape-2 {
   animation: morphShape2 25s ease-in-out infinite,
-             floatGently 15s ease-in-out infinite 3s;
+             floatGently 15s ease-in-out infinite 0s;
   will-change: transform, border-radius;
 }
 
 .morph-shape-3 {
   animation: morphShape3 18s ease-in-out infinite,
-             floatGently 10s ease-in-out infinite 6s;
+             floatGently 10s ease-in-out infinite 0s;
   will-change: transform, border-radius;
 }
 
