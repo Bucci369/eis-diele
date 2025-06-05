@@ -723,15 +723,15 @@ html {
 @keyframes morphShape2 {
   0%, 100% {
     border-radius: 40% 60% 50% 30%;
-    transform: rotate(0deg) scale(1);
+    transform: scale(1); /* Nur Skalierung, Rotation auf 0 (implizit oder explizit rotate(0deg)) */
   }
   33% {
     border-radius: 60% 40% 30% 70%;
-    transform: rotate(120deg) scale(1.08);
+    transform: scale(1.08); /* Nur Skalierung, Rotation entfernt */
   }
   66% {
     border-radius: 30% 70% 60% 40%;
-    transform: rotate(240deg) scale(0.92);
+    transform: scale(0.92); /* Nur Skalierung, Rotation entfernt */
   }
 }
 
