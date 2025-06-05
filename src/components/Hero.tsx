@@ -22,7 +22,7 @@ export default function Hero() {
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold font-playfair text-gray-900 leading-tight mb-8">
             <span className={`block ${isMounted ? 'animate-melt-smooth' : 'opacity-0'}`}>
-              Eis Diele
+              Schleckwerk
             </span>
             <span className={`block gradient-text ${isMounted ? 'animate-melt-smooth-delay' : 'opacity-0'}`}>
               Manufaktur

@@ -12,7 +12,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <h2 className="text-2xl font-bold font-playfair text-gray-900 hover:scale-105 transition-transform duration-300 cursor-pointer">
-              Eis Diele
+              Schleckwerk
             </h2>
           </div>
           
