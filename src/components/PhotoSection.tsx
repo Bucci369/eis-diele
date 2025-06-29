@@ -51,7 +51,7 @@ export default function PhotoSection() {
           <div className="relative">
             {/* Floating info cards */}
             <div className="space-y-6">
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 floating-3d">
+              <div className="bg-primary-100/80 backdrop-blur-sm rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 floating-3d">
                 <div className="flex items-center space-x-4">
                   <div className="text-3xl font-bold text-primary-600">15+</div>
                   <div>
@@ -71,7 +71,7 @@ export default function PhotoSection() {
                 </div>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 floating-3d">
+              <div className="bg-primary-100/80 backdrop-blur-sm rounded-xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 floating-3d">
                 <div className="flex items-center space-x-4">
                   <div className="text-3xl font-bold text-primary-600">100%</div>
                   <div>

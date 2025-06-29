@@ -85,11 +85,11 @@ export default function Products() {
 
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-8 space-y-8">
           {filteredProducts.map((product, index) => (
-            <div key={product.id} className="group cursor-pointer break-inside-avoid mb-8">
+            <div key={product.id} className="break-inside-avoid mb-8">
               <OptimizedImage 
                 src={product.image} 
                 alt={`Eisbecher ${product.id}`}
-                className="w-full h-auto group-hover:scale-105 transition-transform duration-300 rounded-lg shadow-lg"
+                className="w-full h-auto rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                 placeholder="gradient"
               />
             </div>
